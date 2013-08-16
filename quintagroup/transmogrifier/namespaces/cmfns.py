@@ -37,7 +37,8 @@ class LocalRolesAttribute(base.LocalRolesAttribute):
         lr = getattr( instance, '__ac_local_roles__', {})
         for k in lr.keys():
             for i in range(len(lr[k])):
-                lr[k][i] = lr[k][i].encode('utf-8')
+                if not isinstance(lr[k][i], basestring):
+                    lr[k][i] = lr[k][i].encode('utf-8')
         return lr
 
 
