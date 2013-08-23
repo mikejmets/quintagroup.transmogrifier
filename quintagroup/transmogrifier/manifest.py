@@ -140,7 +140,7 @@ class ManifestImporterSection(object):
         item = None
         folder_path = None
         while True:
-            if folder_path == '':
+            if item:
                 yield item
             manifest = self.manifests.get(folder_path, {})
             for id_ in manifest.keys():
